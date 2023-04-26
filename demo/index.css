@@ -9,7 +9,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-size: 50px;
 }
 
 header {
@@ -18,11 +17,15 @@ header {
 }
 
 section {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+  justify-content: space-evenly;
   border: 2px solid black;
   font-size: 14px;
 }
 
-section div {
+section.upper-container div {
   /*
     em works in relationship to the font-size
     of the parent element
@@ -34,7 +37,6 @@ section div {
     px, cm, mm, in
   */
   height: 150px;
-
   /*
     RELATIVE UNITS
     percentage (%) -> related to the parent element
@@ -45,39 +47,42 @@ section div {
     em -> font-size unit related to the parent element
     rem -> font-size unit related to the ROOT (html) element
   */
-  width: 20vw;
   min-width: 200px;
-  max-width: 300px;
 
-  margin: 20px;
-  line-height: 150px;
-  display: inline-block;
+  margin: 10px;
+  line-height: 90px;
   background-color: lightpink;
   text-align: center;
 }
+
 
 footer {
   background-color: burlywood;
   height: 150px;
 }
 
-@media only screen and (min-width: 400px) {
-
-  section {
-    background-color: red;
-  }
-
+.container div {
+  font-size: 2em;
+  height: 100px;
+  min-width: 200px;
+  margin: 10px;
+  line-height: 90px;
+  background-color: lightpink;
+  text-align: center;
 }
 
-@media only screen and (min-width: 800px) {
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 33% [col-start]);
+  grid-template-rows: repeat(3, 100px [row-start]);
+}
 
-  section {
-    background-color: green;
-  }
+#one {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
 
-  section div {
-    height: 100px;
-    width: 100px;
-  }
-  
+#two {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
 }
